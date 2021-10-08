@@ -1,0 +1,171 @@
+<ion-toolbar class="fundo">
+  <ion-buttons slot="start">
+    <ion-back-button class="color-seta" defaultHref="navigation"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content>
+  <div class="border-text" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    <ion-icon class="icons-menu icone fa-3x" name="game-controller" slot="start"></ion-icon>
+    <h4 class="ion-text-center" > Registrar Jogador</h4>
+  </div>
+    <form>
+        <ion-item lines="full">
+            <ion-label position="floating">Apelido</ion-label>
+            <ion-input (ionChange)="setCreateUserAttribute('nickname', $event.target.value)" type="text"></ion-input>
+        </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Código da Sala - Opcional</ion-label>
+        <ion-input (ionChange)="setCreateUserAttribute('code', $event.target.value)" [value]="user.code" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-radio-group (ionChange)="setCreateUserAttribute('age_group', $event.target.value)" lines="full">
+        <ion-list-header>
+          <ion-label>Idade</ion-label>
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label> Menor que 13 anos</ion-label>
+          <ion-radio slot="start" value="1" checked></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>13 a 19 anos</ion-label>
+          <ion-radio slot="start" value="2"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>20 a 34 anos</ion-label>
+            <ion-radio slot="start" value="3"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>35 a 42 anos</ion-label>
+            <ion-radio slot="start" value="4"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Maior que 42 anos</ion-label>
+            <ion-radio slot="start" value="5"></ion-radio>
+          </ion-item>
+      </ion-radio-group>
+
+      <ion-radio-group (ionChange)="setCreateUserAttribute('sex', $event.target.value)" lines="full">
+        <ion-list-header>
+          <ion-label>Gênero</ion-label>
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Feminino</ion-label>
+          <ion-radio slot="start" value="true" checked></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Masculino</ion-label>
+          <ion-radio slot="start" value="false"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+
+      <ion-radio-group (ionChange)="setCreateUserAttribute('status', $event.target.value)" lines="full">
+        <ion-list-header>
+          <ion-label>Você É/ESTÁ</ion-label>
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Gestante</ion-label>
+          <ion-radio slot="start" value="1" checked></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Puérpera (dia 1 a 42 após parto)</ion-label>
+          <ion-radio slot="start" value="2"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Amamentando</ion-label>
+            <ion-radio slot="start" value="3"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Estudante</ion-label>
+            <ion-radio slot="start" value="4"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pai</ion-label>
+            <ion-radio slot="start" value="5"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Outro</ion-label>
+            <ion-radio slot="start" value="6"></ion-radio>
+          </ion-item>
+      </ion-radio-group>
+      <ion-item (ionChange)="setCreateUserAttribute('status_other', $event.target.value)" *ngIf="user.status == 6">
+        <ion-label position="floating">Especifique</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+
+
+      <ion-radio-group (ionChange)="setCreateUserAttribute('what_brought_you', $event.target.value)" lines="full">
+        <ion-list-header>
+          <ion-label>O que levou você a participar desse jogo ?</ion-label>
+        </ion-list-header>
+  
+        <ion-item>
+          <ion-label>Não recebi orientações sobre amamentação</ion-label>
+          <ion-radio slot="start" value="1" checked></ion-radio>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label>Dificuldades em amamentar</ion-label>
+          <ion-radio slot="start" value="2"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Curiosidade sobre o tema</ion-label>
+            <ion-radio slot="start" value="3"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Dúvidas sobre o tema</ion-label>
+            <ion-radio slot="start" value="4"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Inseguranças e medos sobre o tema</ion-label>
+            <ion-radio slot="start" value="5"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Aprender sobre o tema</ion-label>
+            <ion-radio slot="start" value="6"></ion-radio>
+          </ion-item>
+  
+          <ion-item>
+              <ion-label>Testar os meus conhecimentos</ion-label>
+              <ion-radio slot="start" value="7"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Aprofundar meus conhecimentos</ion-label>
+              <ion-radio slot="start" value="8"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Melhorar a prática de aleitamento</ion-label>
+              <ion-radio slot="start" value="9"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Indicação de amigo, familiar ou outra pessoa</ion-label>
+              <ion-radio slot="start" value="10"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Outro</ion-label>
+              <ion-radio slot="start" value="11"></ion-radio>
+            </ion-item>
+      </ion-radio-group>
+      <ion-item (ionChange)="setCreateUserAttribute('what_brought_you_other', $event.target.value)" *ngIf="user.what_brought_you == 11">
+        <ion-label position="floating">Especifique</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-item>
+  
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="createUser()" class="cor-botao" expand="block" size="large">Jogar</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-content>

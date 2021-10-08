@@ -1,0 +1,84 @@
+<ion-content>
+  <ion-header class="navbar-fundo">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center cor-texto">Amamenta Ação</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div class="text-center mt-2">
+    <ion-chip *ngIf="!mostrarResposta" style="background-color: #67326a; color: white; text-align: ;">
+      <ion-label style="font-size: 20px;">Pergunta <i class="fas fa-question-circle mr-2"></i> {{this.indice + 1}}/20</ion-label>
+    </ion-chip>
+    <div class="container" *ngIf="mostrarResposta">
+      <h2 class="animate__animated animate__rollIn" *ngIf="this.alternativaCorreta === 'ACERTOU'">EXECELENTE</h2>
+      <i *ngIf="this.alternativaCorreta === 'ACERTOU'" class="cores-icone  animate__animated animate__rollIn far fa-smile-wink fa-3x"></i>
+      <h2 class="animate__animated animate__rollIn" *ngIf="this.alternativaCorreta === 'ERROU'">NÃO FOI DESSA VEZ</h2>
+      <i *ngIf="this.alternativaCorreta === 'ERROU'" class="cores-icone  animate__animated animate__rollIn fa-3x fas fa-sad-tear"></i>
+    </div>
+    <div class="container">  
+
+
+   <div class="questoes">
+    <div class="text-center">
+      <h4 class="justificar">{{questions && questions[indice].description}}</h4>
+    </div>
+  </div>
+      
+    
+      <div *ngIf="mostrarResposta"  class="ion-text-center margem-resposta mt-3" color="dark">
+       <h5 class="mt-3">Justificativa</h5>
+       <hr style="background-color: black;">
+        <p style="padding: 15px" class="justificar">{{questions && questions[indice].answer}}</p>
+      </div>
+
+    </div>
+
+    <div *ngIf="!mostrarResposta" class="container mt-2">
+      <ion-list>
+        <ion-radio-group (ionChange)="setCreateGameAttribute('answer_user', $event.target.value)">
+          
+
+          <ion-item id="borderDemo">
+              <ion-label>Verdadeiro</ion-label>
+              <ion-radio [value]="true"></ion-radio> 
+          </ion-item>
+      
+          <ion-item id="borderDemo">
+            <ion-label>Falso</ion-label>
+            <ion-radio [value]="false"></ion-radio>
+          </ion-item>
+      
+          <ion-item id="borderDemo" >
+            <ion-label>Não Sei</ion-label>
+            <ion-radio [value]="null"></ion-radio>
+          </ion-item>
+      </ion-radio-group>
+    </ion-list>      
+  </div>
+
+    <div *ngIf="!this.mostrarResposta" class="container mt-2">
+      <section>
+        <ion-button (click)="responseQuestions()" class="button-iniciar" expand="block" size="large">Responder</ion-button>
+      </section>
+    </div>
+
+    <div *ngIf="this.mostrarResposta" class="container mt-2">
+      <section>
+        <ion-button (click)="continue()" class="button-iniciar" expand="block" size="large">Continue</ion-button>
+      </section>
+    </div>
+
+
+    
+    
+    
+  </div>
+  
+  
+</ion-content>
+
+
+  

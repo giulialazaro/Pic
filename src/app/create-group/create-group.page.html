@@ -1,0 +1,35 @@
+
+
+ <ion-toolbar class="fundo">
+  <ion-buttons slot="start">
+    <ion-back-button class="color-title" defaultHref="navigation"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+ 
+<ion-content>
+  <div class="border-text" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    <i class="fas fa-users icone fa-3x mt-2" title="Key active"></i>
+    <h4 class="ion-text-center" > Registrar Grupo de Jogadores</h4>
+  </div>
+<div class="container">
+  <ion-card class="mt-4">
+    <form>
+      <ion-item lines="full">
+        <ion-label class="icone" position="floating">Apelido do Grupo</ion-label>
+        <ion-input class="icone" (ionChange)="nameChange($event.detail.value)" type="text" required></ion-input> 
+    </ion-item>
+    </form>
+  </ion-card>
+  
+    <ion-button size="large" expand="block" class="button-cadastrar"(click)="createGroup()">Cadastrar Grupo</ion-button>  
+</div>
+
+
+
+
+
+
+
+
+
+

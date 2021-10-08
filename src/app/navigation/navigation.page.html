@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-menu side="start" content-id="main-content">
+    <ion-header>
+      <ion-toolbar translucent>
+        <ion-title class="itens-menu">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon class="icons-menu" name="game-controller" slot="start"></ion-icon>
+          <a class="itens-menu" href="/create-user"><ion-label>Jogar</ion-label></a>
+        </ion-item>
+        <ion-item>
+          <ion-icon class="icons-menu" name="heart" slot="start"></ion-icon>
+          <a class="itens-menu" href="/navigation/who-are"><ion-label>Quem Somos</ion-label></a>
+        </ion-item>
+        <ion-item>
+          <ion-icon class="icons-menu" name="people-circle-outline" slot="start"></ion-icon>
+          <a class="itens-menu" href="/create-group"><ion-label>Registrar Grupo</ion-label></a>
+        </ion-item>
+        </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="itens-menu">Bem Vindos!</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <router-outlet></router-outlet>
+    </ion-content>
+  </div>
+</ion-app>
